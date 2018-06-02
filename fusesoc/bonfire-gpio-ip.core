@@ -1,0 +1,23 @@
+CAPI=1
+[main]
+name = ::bonfire-gpio-ip:0
+depend = ::bonfire-util:0  ::bonfire-gpio ::bonfire-axi4l2wb
+backend = vivado
+;simulators=xsim ghdl
+
+[rtl]
+files=bonfire_gpio_core.vhd
+filetype=vhdl
+
+
+;[simulator]
+;toplevel = bonfire_gpio_core
+
+[vivado]
+part=xc7a35ticsg324-1L
+top_module=bonfire_gpio_core
+
+
+;[ghdl]
+;analyze_options = --ieee=synopsys
+;run_options = --ieee=synopsys

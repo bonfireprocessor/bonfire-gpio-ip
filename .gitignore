@@ -1,0 +1,7 @@
+/bonfire_gpio_ipcore.cache
+/bonfire_gpio_ipcore.hw
+/bonfire_gpio_ipcore.runs
+/fusesoc_build
+*.log
+
+
