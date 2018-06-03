@@ -1,0 +1,22 @@
+package require xilinx::board 1.0
+namespace import ::xilinx::board::*
+set instname [current_inst]
+set f_xdc [add_ipfile -usedIn  [list synthesis implementation board ] -force ${instname}_board.xdc]
+puts_ipfile $f_xdc "#--------------------Physical Constraints generated-----------------\n"
+if { [get_project_property BOARD] == "" } {
+    close_ipfile $f_xdc
+    return
+}
+
+set board_if [get_property PARAM_VALUE.GPIO_BOARD_INTERFACE]
+
+set gpio1_width [get_property PARAM_VALUE.NUM_GPIO]
+
+puts_ipfile $f_xdc [concat "# Bound to Interface:" $board_if]
+
+if { $board_if ne "Custom"} {
+    board_add_tri_state_port_constraints $f_xdc $board_if \
+    TRI_I gpio_io_i TRI_O gpio_io_o TRI_T gpio_io_t $gpio1_width
+}
+
+close_ipfile $f_xdc
