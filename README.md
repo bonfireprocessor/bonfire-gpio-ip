@@ -7,5 +7,8 @@ Subdirectory package contains the generated core.
 
 ``FuseSoC Command line: fusesoc --config fusesoc.conf build bonfire-gpio-ip  ``
 
-Work in Progress, project cannot be build with manual intervention
+Work in Progress, project cannot be build with manual intervention.
+
+The Subdirectory "package" currently containts the generated IP Core. It can be
+referenced as "Repository directory in Vivado.
 
